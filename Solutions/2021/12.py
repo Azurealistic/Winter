@@ -18,7 +18,7 @@ def solve_recursive(edges, curr, prev, doubles = False):
 		return 1
 	total = 0
 	for n in edges[curr]:
-		if n not in prev or doubles and max(Counter(prev).values()) == 1 and n != 'start':
+		if n not in prev or (doubles and max(Counter(prev).values()) == 1 and n != 'start'):
 			total += solve_recursive(edges, n, prev, doubles)
 	return total
 
