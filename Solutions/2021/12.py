@@ -12,14 +12,20 @@ def create_graph(data):
 	return edges
 
 def solve_recursive(edges, curr, prev, doubles = False):
+	# Make sure it is not uppercase node.
 	if not curr.isupper():
 		prev = prev + [curr]
+	# End of recursion.
 	if curr == 'end':
 		return 1
 	total = 0
+	# For each neighbour attached to the current node.
 	for n in edges[curr]:
+		# If it wasn't previously visited, OR if we are allowing doubles, and their have been no current duplicates, and neighbour is not the start node.
+		# Then we can visit it, and add that score to the total.
 		if n not in prev or (doubles and max(Counter(prev).values()) == 1 and n != 'start'):
 			total += solve_recursive(edges, n, prev, doubles)
+	# Recursion ends here and goes up the chain of calls.
 	return total
 
 def solve(graph):
