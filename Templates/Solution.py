@@ -10,7 +10,6 @@ def solve(lines):
 # Solution
 def main():
 	solve(data.splitlines())
-	pass
 
 # Call the main function.
 if __name__ == '__main__':
