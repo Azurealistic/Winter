@@ -2,7 +2,6 @@
 # Imports (Always imports data based on the folder and file name)
 from aocd import data, submit
 
-
 def solve(lines, expanded = False):
 	ll = [[int(y) for y in x] for x in lines.strip().split('\n')]
 
@@ -11,6 +10,7 @@ def solve(lines, expanded = False):
 		return pos[0] in range(len(ls)) and pos[1] in range(len(ls[0]))
 
 	expanded_arr = []
+	
 	if expanded == True:
 		expanded_arr = [[0 for x in range(5*len(ll[0]))] for y in range(5*len(ll))]
 		for x in range(len(expanded_arr)):
@@ -39,7 +39,9 @@ def solve(lines, expanded = False):
 				print("Star 2:", cost)
 				submit(cost, part='b', day=15, year=2021)
 			break
+
 		q = q[1:]
+
 		for dx,dy in [(x+1, y), (x-1, y), (x, y+1), (x, y-1)]:
 			if in_ls((dx, dy), ll) and (dx, dy) not in costs:
 				costs[(dx, dy)] = cost + ll[dx][dy]
