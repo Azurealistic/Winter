@@ -17,7 +17,7 @@ def solve(lines):
 	y1, y2 = int(target[1].split('=')[1].split('..')[0]), int(target[1].split('=')[1].split('..')[1])
 	total, best_height = 0, 0
 	for vx in range(0, x2 + 1):
-		for vy in range(y1, 1000):
+		for vy in range(y1, -y1):
 			x, y = 0, 0
 			vel_x, vel_y = vx, vy
 			max_y = 0
