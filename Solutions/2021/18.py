@@ -13,9 +13,9 @@ def recursive_addition(ll, num, left = True):
 	if isinstance(ll, int):
 		return ll + num
 	if left:
-		return [recursive_addition(ll[0], num), ll[1]]
+		return [recursive_addition(ll[0], num, True), ll[1]]
 	else:
-		return [ll[0], recursive_addition(ll[1], num)]
+		return [ll[0], recursive_addition(ll[1], num, False)]
 
 # Explode list by doing it recursively
 def explode(ll, lvl = 4):
