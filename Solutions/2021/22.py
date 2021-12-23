@@ -28,12 +28,9 @@ def calculate(lines, length = 20): # Used for both parts of the challenge. Len i
 			curr = all_cubes[j]
 			if (cube[1] > curr[0] and cube[0] < curr[1]) and (cube[3] > curr[2] and cube[2] < curr[3]) and (cube[5] > curr[4] and cube[4] < curr[5]):
 				for i in range(6):
-					nc = curr[:]
-					if i % 2 == 0 and curr[i] < cube[i]:
-						nc[i + 1] = curr[i] = cube[i]
-						new_cubes.append(nc)
-					elif i % 2 == 1 and curr[i] > cube[i]:
-						nc[i - 1] = curr[i] = cube[i]
+					if (curr[i] > cube[i]) if (i & 1) else (curr[i] < cube[i]):
+						nc = curr[:]
+						nc[i ^ 1] = curr[i] = cube[i]
 						new_cubes.append(nc)
 			else:
 				new_cubes.append(curr)
