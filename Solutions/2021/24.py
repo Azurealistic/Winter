@@ -18,16 +18,16 @@ def solve(lines):
 			constraints[i] = (k, bk + a)
 
 	# At this point the constraints are stored at the relevant index for which they affect and can be used to find the minimum or maximum element at that index in the answer.
-	min_ans = {}
 	max_ans = {}
+	min_ans = {}
 	for i, (k, d) in constraints.items():
-		min_ans[i] = min(9, 9 + d)
-		min_ans[k] = min(9, 9 - d)
-		max_ans[i] = max(1, 1 + d)
-		max_ans[k] = max(1, 1 - d)
+		max_ans[i] = min(9, 9 + d)
+		max_ans[k] = min(9, 9 - d)
+		min_ans[i] = max(1, 1 + d)
+		min_ans[k] = max(1, 1 - d)
 
-	p1 = "".join(str(min_ans[i]) for i in range(14))
-	p2 = "".join(str(max_ans[i]) for i in range(14))
+	p1 = "".join(str(max_ans[i]) for i in range(14))
+	p2 = "".join(str(min_ans[i]) for i in range(14))
 
 	print("Star 1:", p1)
 	print("Star 2:", p2)
