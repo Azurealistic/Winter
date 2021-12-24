@@ -1,4 +1,4 @@
-# Advent of Code - Day:
+# Advent of Code 2021 - Day: 24
 # Imports (Always imports data based on the folder and file name)
 from aocd import data, submit
 
